@@ -203,3 +203,25 @@ Utilized \Collectors.groupingBy()\ natively embedded within the Stream API logic
 
 ### Design Explanation
 Calling \Collectors.groupingBy()\ transitions processing naturally from flat linear structures to hierarchical categorization safely. Because a consist often needs rapid grouping by coach classification (how many 'Sleepers'? how many 'AC Chairs'?), this collector fundamentally delegates the organizational logic explicitly cleanly returning precise grouping natively skipping nested looping artifacts natively.
+
+## Use Case 10 (UC10)
+
+### Goal
+Aggregate seating capacities into a single total value using Stream reduction natively for reporting metrics.
+
+### Problem Before UC10
+Adding numeric properties across a grouping of Objects usually dictates instantiating an external integer variable initialized at 0, paired with an enhanced \or\ array loop iterating sequentially and incrementing the property individually per element (+ \ogie.getCapacity()\). This manually tracked mutation process is verbose, error-prone on larger enterprise systems, and obstructs logic reading conceptually.
+
+### Solution
+Tapped into the Java functional Streams interface natively deploying the \.map()\ operation to effortlessly extract capacities combined with the \.reduce()\ mathematical function effectively computing the aggregate total gracefully utilizing \Integer::sum\.
+
+### Concepts Used
+- **map() Operation:** Structurally transforms every mapped \Bogie\ object converting them fluidly into an isolated stream of numeric \capacity\ integers exclusively representing the target metrics natively.
+- **reduce() Method:** Synthesizes/Combines scattered sequential values organically producing one single terminal aggregation result (summing cumulative seating thresholds collectively together natively into one digit).
+- **Method Reference:** Applies concise stylistic syntax invoking existing logic efficiently natively (\Integer::sum\) eliminating excessive Lambda closures declaratively. 
+- **Functional Aggregation:** Formats mathematical computation dynamically resolving loops manually into expressive operational pipeline instructions transparently.
+- **Stream Pipeline:** Bridges discrete processing actions seamlessly forming fluid pipelines extracting data properly and applying accumulation instantaneously.
+- **Numeric Analytics:** Empowers organizational capabilities delivering quantitative load capacities calculating operational thresholds passively improving metrics visibility meaningfully.
+
+### Design Explanation
+Using \map(Bogie::getCapacity)\ organically decouples object structures abstracting purely the analytical dataset required cleanly natively. Afterwards, \educe(0, Integer::sum)\ provides robust terminal mathematics summing properties smoothly ensuring that capacity calculation rules stay encapsulated inside rapid operational pipelines completely independent from external loop mutations cleanly.
