@@ -71,3 +71,24 @@ Introduced the \Set\ interface implemented locally via a \HashSet<String>\. Atte
 
 ### Design Explanation
 Using a \HashSet<String>\ for managing unique bogie IDs natively guarantees rapid O(1) average-time complexity on lookups and additions. Because the real-world domain demands each train coach securely maintains an independent unique identifier ("S-01", "A-02"), \HashSet\ organically shields data integrity cleanly without needing bloated if/else conditional iteration wrappers.
+
+## Use Case 4 (UC4)
+
+### Goal
+Model the physical chaining of real-world trains allowing fast insertions and removals at the beginning, end, and middle of the consist natively using a \LinkedList\.
+
+### Problem Before UC4
+While \ArrayList\ represents a dynamically growing list, inserting or removing elements from arbitrary positions (like the beginning or middle) requires shifting all subsequent elements in memory. This represents a huge performance bottleneck for large train compositions.
+
+### Solution
+Introduced \LinkedList<String>\ for managing train coaches. Because elements are represented as connected node references rather than indexed memory arrays, operations like decoupling the Engine (head) or the Guard coach (tail), and even inserting a Pantry Car mid-train, are executed in constant or linear relational time without shifting allocations.
+
+### Concepts Used
+- **LinkedList:** A doubly-linked list collection connecting elements via node references.
+- **Node Structure:** Implicitly stores data and directional pointers avoiding fixed indexing limitations.
+- **addFirst() / addLast() & removeFirst() / removeLast():** Clean built-in O(1) methods to attach or detach bogies safely from the sequence extremities natively.
+- **add(index, element):** Allows targeted mid-consist attachments natively.
+- **Order Preservation:** Retains chronological/physical sequencing natively while enabling superior mid-list mutability compared to ArrayList.
+
+### Design Explanation
+Using \LinkedList\ naturally maps to how a real train operates structurally—each bogie (node) connects directly to the one in front and behind it. This ensures fast linkage operations natively when coupling/decoupling bogies at ends or unhooking specific coaches mid-journey without needing entire array block recalibrations natively.

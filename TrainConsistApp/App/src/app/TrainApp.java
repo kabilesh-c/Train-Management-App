@@ -7,6 +7,7 @@ import model.SleeperCoach;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -96,6 +97,35 @@ public class TrainApp {
         // 3. Duplicates are ignored; Unique IDs are displayed
         System.out.println("Unique Bogie IDs in HashSet: " + bogieIds);
         System.out.println("Total unique IDs successfully registered: " + bogieIds.size());
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC4: Train Consist Chaining (LinkedList)
+        // ============================================
+        System.out.println("=== UC4: Train Node Management (LinkedList) ===");
+        
+        // 1. Create a LinkedList<String> for the consist
+        LinkedList<String> trainChain = new LinkedList<>();
+        
+        // 2. Add bogies: Engine, Sleeper, AC, Cargo, Guard
+        trainChain.add("Engine");
+        trainChain.add("Sleeper");
+        trainChain.add("AC");
+        trainChain.add("Cargo");
+        trainChain.add("Guard");
+        System.out.println("Initial chain: " + trainChain);
+        
+        // 3. Insert a Pantry Car at position 2
+        trainChain.add(2, "Pantry Car");
+        System.out.println("After inserting Pantry Car at index 2: " + trainChain);
+        
+        // 4. Remove the first and last bogie
+        trainChain.removeFirst(); // Removes Engine
+        trainChain.removeLast();  // Removes Guard
+        System.out.println("After removing Engine and Guard: " + trainChain);
+        
+        // 5. Display the final ordered train consist
+        System.out.println("Final ordered train consist: " + trainChain);
         System.out.println("=====================================");
     }
 }
