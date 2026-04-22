@@ -225,3 +225,25 @@ Tapped into the Java functional Streams interface natively deploying the \.map()
 
 ### Design Explanation
 Using \map(Bogie::getCapacity)\ organically decouples object structures abstracting purely the analytical dataset required cleanly natively. Afterwards, \educe(0, Integer::sum)\ provides robust terminal mathematics summing properties smoothly ensuring that capacity calculation rules stay encapsulated inside rapid operational pipelines completely independent from external loop mutations cleanly.
+
+## Use Case 11 (UC11)
+
+### Goal
+Validate Train ID and Cargo Code formats using Regular Expressions proactively ensuring data integrity.
+
+### Problem Before UC11
+Checking complex string combinations like "TRN-1234" manually requires verbose, deeply nested loop configurations that verify character alignments index-by-index using static \Character.isDigit()\ checks natively. This procedural strategy is deeply error-prone, fragile to formatting updates, and extremely exhausting to maintain effectively within the core operational domains natively.
+
+### Solution
+Introduced Java's explicit Regular Expression classes (\Pattern\ & \Matcher\). By precisely defining explicit formatting constraints natively ("TRN-\d{4}" & "PET-[A-Z]{2}"), the application immediately parses complicated combinations natively rejecting misaligned syntax instantaneously without executing explicit loops intuitively.
+
+### Concepts Used
+- **Regular Expressions (Regex):** A pattern recognition language embedded formally describing structurally valid textual criteria natively (e.g. TRN-1234 natively).
+- **Pattern Class:** Represents the compiled structure validating standard regex algorithms efficiently, natively reused verifying widespread entity collections natively.
+- **Matcher Class:** Systematically overlays the parsed \Pattern\ natively comparing strict data formatting intrinsically.
+- **matches() Method:** Computes strict Boolean feedback validating whether targeted strings perfectly conform encapsulating entire boundaries without trailing data natively. 
+- **Format Enforcement:** Strict enterprise application logic gatekeeping incorrect formatting configurations structurally preventing bad database persistence synchronously.
+- **Data Integrity Validation:** Protects downstream logic natively halting pipeline execution smoothly discarding incorrectly typed configurations cleanly.
+
+### Design Explanation
+Relying directly on \Pattern\ and \Matcher\ inherently solves input corruption accurately. Instead of trusting untyped literal string variables passing seamlessly downstream blindly mimicking operational logic, enforcing regex structures verifies precise semantic meaning (\TRN-\ followed strictly by 4 exact digits natively). This explicitly rejects instances like "TRN-12A4" instantly, structurally fortifying overall execution layers consistently without messy looping mechanisms intuitively.
