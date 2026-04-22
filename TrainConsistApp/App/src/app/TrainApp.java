@@ -255,6 +255,23 @@ public class TrainApp {
             }
         }
         
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC10: Aggregate seating capacities into a single total value
+        // ============================================
+        System.out.println("=== UC10: Total Capacity Aggregation (Stream Reduce) ===");
+        
+        // 1. Create a stream using stream()
+        // 2. Apply map() to extract numeric capacity values.
+        // 3. Use reduce() to calculate the total natively.
+        System.out.println("Calculating total seating capacity across the consist...");
+        int totalCapacity = customBogies.stream()
+                .map(Bogie::getCapacity) // Extracting integer payloads
+                .reduce(0, Integer::sum); // Aggregating using Method Reference
+                
+        // 4. Display the total seating capacity
+        System.out.println("Total Assessed Seating Capacity: " + totalCapacity + " seats");
         System.out.println("=====================================");
     }
 }
