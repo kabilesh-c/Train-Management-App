@@ -1,6 +1,6 @@
-# ?? Train Consist Management App
+# Train Consist Management App
 
-## ?? Overview
+## Overview
 This system simulates real-world railway operations by managing train coach composition (consist).
 
 The goal is NOT just coding, but demonstrating:
@@ -10,22 +10,43 @@ The goal is NOT just coding, but demonstrating:
 
 Each Use Case (UC) must introduce ONE concept clearly.
 
-## ?? Use Case 1 (UC1)
+## Use Case 1 (UC1)
 
-### ?? Goal
+### Goal
 Initialize the Train Consist Management App and display the initial state of the train using basic OOP models.
 
-### ? Problem Before UC1
+### Problem Before UC1
 No foundational architecture existed to natively represent dynamic trains in memory. Without models, representing varied coaches (Sleeper, AC, General) using basic arrays or unrelated variables scaling and organizing real-world data effectively was impossible.
 
-### ?? Solution
+### Solution
 Introduced a Core Java OOP model using a base Coach class, executing from TrainApp as the main entry point to initialize a dynamic list (ArrayList) that efficiently tracks coach additions.
 
-### ?? Concepts Used
+### Concepts Used
 - **Class / Main Method:** Entry point, static execution, application structuring.
 - **OOP (Abstraction, Inheritance, Polymorphism):** Abstract Coach behaviors delegated securely to SleeperCoach, GeneralCoach, ACCoach.
-- **Dynamic Collections (ArrayList<Coach>):** Growing collections size safely at runtime securely implementing the List abstraction interface natively.
+- **Dynamic Collections (ArrayList):** Growing collections size safely at runtime securely implementing the List abstraction interface natively.
 - **Console Output:** System printing statements for interaction.
 
-### ?? Design Explanation
-A Coach abstract class groups base requirements (like coachNumber and 	ype). Classes like ACCoach, GeneralCoach, and SleeperCoach inherit properties while holding unique specifications (e.g. 	ier levels or erthCapacity). The ArrayList provides robust collection logic minimizing boilerplate sizing needed for varying train lengths allowing clean separation of concerns within TrainApp.
+### Design Explanation
+A Coach abstract class groups base requirements (like coachNumber and type). Classes like ACCoach, GeneralCoach, and SleeperCoach inherit properties while holding unique specifications (e.g. tier levels or berthCapacity). The ArrayList provides robust collection logic minimizing boilerplate sizing needed for varying train lengths allowing clean separation of concerns within TrainApp.
+
+## Use Case 2 (UC2)
+
+### Goal
+Allow dynamic insertion and removal of passenger bogies using ArrayList natively.
+
+### Problem Before UC2
+Fixed-size structures (like standard arrays) cannot dynamically grow or shrink when bogies are attached or detached in real-world scenarios without manually shifting elements, which is heavily error-prone.
+
+### Solution
+Introduced basic CRUD operations (Create, Read, Update, Delete) dynamically scaling elements natively using an \ArrayList<String>\. Operations add, remove, and verify bogie presence seamlessly.
+
+### Concepts Used
+- **ArrayList:** A resizable collection simulating train expansion effectively.
+- **add():** Safely appends an element at the end of the collection maintaining chronological insertion order.
+- **remove():** Targets and dynamically deletes specific bogies, scaling down the structure gracefully.
+- **contains():** Traverses elements to Boolean-verify whether specific bogie assignments already exist within the active composition.
+- **CRUD Operations:** Represents core manipulation basics governing dynamic data behavior natively.
+
+### Design Explanation
+Using an \ArrayList<String>\ locally models fundamental memory management without needing larger data domains first. List methods effectively encapsulate all the underlying shift logic needed when adding multiple items "Sleeper, AC Chair" or handling decoupling via remove, keeping operations reliable and clean.
