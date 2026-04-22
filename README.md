@@ -50,3 +50,24 @@ Introduced basic CRUD operations (Create, Read, Update, Delete) dynamically scal
 
 ### Design Explanation
 Using an \ArrayList<String>\ locally models fundamental memory management without needing larger data domains first. List methods effectively encapsulate all the underlying shift logic needed when adding multiple items "Sleeper, AC Chair" or handling decoupling via remove, keeping operations reliable and clean.
+
+## Use Case 3 (UC3)
+
+### Goal
+Ensure no duplicate bogie IDs are added to the train using HashSet.
+
+### Problem Before UC3
+When adding bogies using lists or basic arrays, duplicate ID registrations could occur, leading to data corruption and logical errors (e.g., dispatching or tracking the same train bogie twice) because those structures don't natively enforce uniqueness constraints without manual iterative verification.
+
+### Solution
+Introduced the \Set\ interface implemented locally via a \HashSet<String>\. Attempts to insert duplicate string identifiers successfully default silently (the duplicates are ignored inherently by the underlying hash map checking identity parity), preventing logical duplicates at runtime.
+
+### Concepts Used
+- **HashSet:** An implementation of \Set\ using hashing algorithms for fast indexing and lookup.
+- **Set Interface:** Collections that prohibit duplicate elements entirely.
+- **add() Method:** Evaluates uniqueness contextually and skips additions if the data identifier previously exists in the target collection.
+- **Automatic Deduplication:** Relies securely on internal hash mechanics natively abstracting manual iteration verification.
+- **Unordered Storage:** Does not preserve chronological insertion order; items rely directly on index-free hashing locations.
+
+### Design Explanation
+Using a \HashSet<String>\ for managing unique bogie IDs natively guarantees rapid O(1) average-time complexity on lookups and additions. Because the real-world domain demands each train coach securely maintains an independent unique identifier ("S-01", "A-02"), \HashSet\ organically shields data integrity cleanly without needing bloated if/else conditional iteration wrappers.
