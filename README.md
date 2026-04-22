@@ -136,3 +136,26 @@ Introduced a key-value mapping using \HashMap<String, Integer>\. This natively a
 
 ### Design Explanation
 Integrating a \HashMap\ perfectly reflects real-world operational reference tables natively (like a master train manifest natively). Instead of iterating exhaustively through a list manually trying to conditionally define a particular coach's capacity locally natively, the system delegates lookups organically mapped exclusively resolving the stats intrinsically natively structuring robust domains natively seamlessly.
+
+## Use Case 7 (UC7)
+
+### Goal
+Sort passenger bogies based on their seating capacity using a custom Comparator.
+
+### Problem Before UC7
+Primitives and single-value strings sort alphabetically or numerically by default (Natural Ordering). A "Sleeper" string is naturally separated from its integer capacity unless mapped. But if you have complex data sets containing arrays of names and capacities mapping 1-to-1 loosely, iterating to sort entire train setups by multiple nested fields manually requires exhaustive, messy bubble-sort implementations polluting the business logic.
+
+### Solution
+Introduced a clean \Bogie\ Model class aggregating its respective \
+ame\ and \capacity\ into single discrete custom objects. By leveraging the \Comparator\ interface externally on lists of \Bogie\ instances natively, the system delegates exact sorting rule processing cleanly avoiding polluted core domains.
+
+### Concepts Used
+- **Comparator Interface:** A functional interface utilized externally to inject custom comparison logic, determining exactly how objects order themselves ignoring standard alphabetically restrictive baselines.
+- **Custom Objects (\Bogie\):** Groups disjointed bogie data properties internally allowing unified robust operational behavior.
+- **List Collection:** Holds arrays of custom \Bogie\ models seamlessly enabling bulk logic applications natively.
+- **sort() Method:** Mutates the underlying list restructuring index alignments immediately using provided Lambda heuristics natively.
+- **Lambda Expressions / Method References (\Bogie::getCapacity\):** Provides concise logic targeting specific fields minimizing bloated anonymous class implementations organically.
+- **Separation of Data and Logic:** Keeps the \Bogie\ layout unaware of how \TrainApp\ decides to sort it ensuring robust maintainable architectures.
+
+### Design Explanation
+Using Java's \Comparator.comparingInt()\ cleanly abstracts the low-level swapping logic required to reorganize a train. Instead of writing custom loops to reorganize coaches by size, passing a Comparator acts as a declarative rule telling the collection exactly *what* matters (capacity payload) without dictating specifically *how* memory indexing must swap it natively.
