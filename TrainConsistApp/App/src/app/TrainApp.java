@@ -1,11 +1,13 @@
 package app;
 
 import model.ACCoach;
+import model.Bogie;
 import model.Coach;
 import model.GeneralCoach;
 import model.SleeperCoach;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -175,6 +177,36 @@ public class TrainApp {
         // 4. Iterate over the map using entrySet() and display
         for (Map.Entry<String, Integer> entry : bogieCapacities.entrySet()) {
             System.out.println("Bogie Name: " + entry.getKey() + " -> Capacity: " + entry.getValue() + " seats");
+        }
+        
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC7: Sort passenger bogies based on capacity
+        // ============================================
+        System.out.println("=== UC7: Custom Object Sorting (Comparator) ===");
+        
+        // 1. Create a List<Bogie> to store passenger bogies.
+        List<Bogie> customBogies = new ArrayList<>();
+        
+        // 2. Add bogies: Sleeper, AC Chair, and First Class
+        customBogies.add(new Bogie("Sleeper", 72));
+        customBogies.add(new Bogie("AC Chair", 78));
+        customBogies.add(new Bogie("First Class", 24));
+        
+        System.out.println("Before Sorting (Insertion Order):");
+        for (Bogie b : customBogies) {
+            System.out.println("  - " + b);
+        }
+        
+        // 3. System applies a Comparator to sort by capacity.
+        // Using Comparator.comparingInt() via Lambda/Method Reference
+        customBogies.sort(Comparator.comparingInt(Bogie::getCapacity));
+        
+        // 4. Sorted bogies are displayed in order.
+        System.out.println("\nAfter Sorting by Capacity (Ascending):");
+        for (Bogie b : customBogies) {
+            System.out.println("  - " + b);
         }
         
         System.out.println("=====================================");
