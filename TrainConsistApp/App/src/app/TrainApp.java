@@ -6,10 +6,12 @@ import model.GeneralCoach;
 import model.SleeperCoach;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -151,6 +153,30 @@ public class TrainApp {
         // 4. Display the final formation order
         System.out.println("Was 'Sleeper' added? " + isSleeperAdded);
         System.out.println("Final ordered unique train formation: " + orderedFormation);
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC6: Associate each bogie with its seating or load capacity
+        // ============================================
+        System.out.println("=== UC6: Bogie Capacity Mapping (HashMap) ===");
+        
+        // 1. Create a HashMap<String, Integer> to store bogie-capacity information.
+        Map<String, Integer> bogieCapacities = new HashMap<>(); // Using Map interface
+        
+        // 2. Insert capacity values for bogies: Sleeper, AC Chair, First Class.
+        // 3. Use the put() method to map each bogie to its capacity.
+        bogieCapacities.put("Sleeper", 72);
+        bogieCapacities.put("AC Chair", 78);
+        bogieCapacities.put("First Class", 24);
+        
+        System.out.println("Bogie-Capacity mapping inserted successfully.");
+        System.out.println("\nIterating over map to display details:");
+        
+        // 4. Iterate over the map using entrySet() and display
+        for (Map.Entry<String, Integer> entry : bogieCapacities.entrySet()) {
+            System.out.println("Bogie Name: " + entry.getKey() + " -> Capacity: " + entry.getValue() + " seats");
+        }
+        
         System.out.println("=====================================");
     }
 }

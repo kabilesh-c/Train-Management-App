@@ -114,3 +114,25 @@ Introduced \LinkedHashSet<String>\ natively combining the best of both mechanics
 
 ### Design Explanation
 Integrating a \LinkedHashSet\ effectively represents train chaining. A coach ID should objectively never exist twice inside the consist (Set). Also, the engine naturally goes first, followed reliably by the attached subsequent links sequentially tracking the physical chain realistically (Linked). Real-world rules map organically avoiding convoluted boilerplate natively.
+
+## Use Case 6 (UC6)
+
+### Goal
+Associate each bogie with its seating or load capacity using a key-value mapping structure.
+
+### Problem Before UC6
+Using plain lists or sets only structured the names or identities of the bogies dimensionally. If we needed to reference the capacity of a specific bogie naturally, we would be forced to create complex domain objects too early or maintain risky parallel arrays natively tracking data, making lookups extremely slow and unmaintainable.
+
+### Solution
+Introduced a key-value mapping using \HashMap<String, Integer>\. This natively allows the application to directly associate a specific bogie's name (the key) with its specific seating or load capacity (the value). 
+
+### Concepts Used
+- **HashMap:** A hash table based implementation of the Map interface that stores data independently as key-value pairs cleanly natively.
+- **Map Interface:** A collection type specifically representing a 1-to-1 mapping relationship between unique keys and their corresponding values natively.
+- **put() Method:** Inserts or immediately updates a key-value pair within the map seamlessly targeting individual identifiers natively.
+- **Key-Value Association:** Models real-world physical property relationships inherently by uniquely binding isolated attributes natively (e.g., binding "Sleeper" permanently to 72 natively).
+- **entrySet() Iteration:** Exclusively provides a reliable unified view of the entire map seamlessly, allowing fluid iteration over both keys and values coupled exactly natively.
+- **Fast Lookup Using Keys:** Ultimately enables O(1) constant-time retrieval naturally retrieving data instantly targeting the bogie identifier exactly natively.
+
+### Design Explanation
+Integrating a \HashMap\ perfectly reflects real-world operational reference tables natively (like a master train manifest natively). Instead of iterating exhaustively through a list manually trying to conditionally define a particular coach's capacity locally natively, the system delegates lookups organically mapped exclusively resolving the stats intrinsically natively structuring robust domains natively seamlessly.
