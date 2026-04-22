@@ -159,3 +159,25 @@ ame\ and \capacity\ into single discrete custom objects. By leveraging the \Comp
 
 ### Design Explanation
 Using Java's \Comparator.comparingInt()\ cleanly abstracts the low-level swapping logic required to reorganize a train. Instead of writing custom loops to reorganize coaches by size, passing a Comparator acts as a declarative rule telling the collection exactly *what* matters (capacity payload) without dictating specifically *how* memory indexing must swap it natively.
+
+## Use Case 8 (UC8)
+
+### Goal
+Filter passenger bogies using Stream pipelines based on seating capacity.
+
+### Problem Before UC8
+Filtering objects in a collection traditionally requires writing explicit \or\ loops, instantiating empty temporary lists, and adding boilerplate conditional \if\ statements inside the blocks. This imperative approach natively makes code verbose, harder to read, and difficult to test safely when business rules grow complex dynamically.
+
+### Solution
+Introduced the Java Stream API to process collections in a declarative style natively. By converting the \Bogie\ list into a stream, we apply a \ilter()\ operation cleanly utilizing a concise Lambda expression (\ -> b.getCapacity() > 60\) and automatically collect the matching results into a new standalone list natively, completely eliminating explicit manual iteration loops.
+
+### Concepts Used
+- **Stream API:** A modern Java feature that processes collections in a declarative style natively, allowing operations such as filtering, mapping, and aggregation instantly without manual looping constructs natively.
+- **stream() Method:** Organically converts a collection object natively into a pipelined stream so that functional processing operations can be fluidly applied directly over bogie data.
+- **filter() Operation:** Contextually selects targeted elements exclusively satisfying a provided condition safely (e.g., retrieving objects matching capacity > 60).
+- **Lambda Expressions:** Functionally provide concise inline behavior definitions for logic processing instead of relying on long conditional loop structures internally.
+- **collect() / toList():** Securely converts the functionally processed stream pipeline effectively returning a standalone collection safely that can be reliably stored or displayed gracefully.
+- **Declarative Programming Style:** Conceptually focuses on *what* to extract safely instead of *how* exactly to step-by-step iterate and mutate, vastly improving intent clarity organically.
+
+### Design Explanation
+Using Stream pipelines shifts the application directly from imperative procedures organically to functional-style programming reliably. Instead of commanding Java precisely how to navigate arrays and compare items systematically natively, the code declares its criteria (\getCapacity() > 60\) declaratively. The Stream natively filters the extraction securely repacking matching items gracefully into cleanly mapped memory without mutating the source dataset implicitly natively.
