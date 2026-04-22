@@ -247,3 +247,25 @@ Introduced Java's explicit Regular Expression classes (\Pattern\ & \Matcher\). B
 
 ### Design Explanation
 Relying directly on \Pattern\ and \Matcher\ inherently solves input corruption accurately. Instead of trusting untyped literal string variables passing seamlessly downstream blindly mimicking operational logic, enforcing regex structures verifies precise semantic meaning (\TRN-\ followed strictly by 4 exact digits natively). This explicitly rejects instances like "TRN-12A4" instantly, structurally fortifying overall execution layers consistently without messy looping mechanisms intuitively.
+
+## Use Case 12 (UC12)
+
+### Goal
+Encapsulate bogie rules using functional interfaces and apply them using lambda expressions natively via Stream validation.
+
+### Problem Before UC12
+Validating multiple objects against complex conditional safety rules conventionally requires manually iterating across arrays. Inside the loop, developers orchestrate messy, nested Boolean condition branches. When a failure is found, manual \reak\ commands must be triggered explicitly, or external boolean flags (\isSafe = false\) must be manually mutated. This logic is difficult to read and scales poorly across numerous growing validation layers natively.
+
+### Solution
+Implemented Java Streams specifically utilizing the \.allMatch()\ terminal operator conditionally wrapping logical constraints seamlessly inside Lambda Expressions natively. By defining the rule functionally (e.g., verifying a \Cylindrical\ type strictly carries true \Petroleum\ natively), the Stream evaluates safety metrics abstractly, providing declarative, secure business validation cleanly natively.
+
+### Concepts Used
+- **Streams API:** Empowers seamless declarative collection processing natively transforming rule evaluation data safely completely stripping out repetitive boilerplate iterations.
+- **allMatch() Terminal Operation:** Evaluates the aggregate stream against a singular explicit \Predicate\ natively, returning true exclusively if every unified element strictly satisfies the constraint securely.
+- **Lambda Expressions:** Translates complex verification rules directly into readable inline conditions avoiding clunky anonymous class definitions natively holding logic operations.
+- **Conditional Logic in Streams:** Directly couples mathematical operators (+ Boolean Logic) safely isolating filtering constraints intrinsically.
+- **Short-Circuit Evaluation:** Aborts the evaluation actively and immediately upon checking the first mismatched failure natively, without exhaustively completing unnecessary downstream processing sequentially saving runtime costs safely.
+- **Business Rule Modeling:** Encapsulates explicit functional behaviors preventing physical hazards dynamically mimicking logic structures inherently seamlessly.
+
+### Design Explanation
+Integrating \llMatch\ structures isolated safety gates that actively return \	rue\ internally protecting validation payloads cleanly seamlessly. Rather than exhaustively relying on imperative nested conditionals flagging arrays natively, this explicit mechanism filters the stream abstractly instantly. Evaluated alongside the newly established \GoodsBogie\, it efficiently flags the invalid "Water-in-Cylinder" instance seamlessly defaulting to a restrictive \alse\ reliably natively securing train configurations.
