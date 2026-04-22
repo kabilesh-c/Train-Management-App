@@ -92,3 +92,25 @@ Introduced \LinkedList<String>\ for managing train coaches. Because elements are
 
 ### Design Explanation
 Using \LinkedList\ naturally maps to how a real train operates structurally—each bogie (node) connects directly to the one in front and behind it. This ensures fast linkage operations natively when coupling/decoupling bogies at ends or unhooking specific coaches mid-journey without needing entire array block recalibrations natively.
+
+## Use Case 5 (UC5)
+
+### Goal
+Maintain insertion order while enforcing uniqueness.
+
+### Problem Before UC5
+A regular \HashSet\ enforces uniqueness but scrambling the order of elements natively breaks the physical alignment of a train. A standard \List\ preserves ordering but allows duplicate bogies, creating logical data corruption if a specific bogie ID gets attached repeatedly without rigorous external iterative validations.
+
+### Solution
+Introduced \LinkedHashSet<String>\ natively combining the best of both mechanics. By utilizing a hash table wrapped with a linked list, duplicate attempts strictly fail automatically while naturally maintaining the exact chronological sequence natively in memory.
+
+### Concepts Used
+- **LinkedHashSet:** A hash table and linked list implementation of the Set interface storing elements predictably natively without indices.
+- **Set Interface:** Collections that strictly prohibit duplicate elements natively ensuring no coach is bound more than once seamlessly.
+- **add() Method:** Abstracts out loop-based uniqueness validation, automatically discarding identical values safely natively without errors.
+- **Automatic Deduplication:** Removes duplicates silently without manual loops natively protecting business integrity rules passively natively.
+- **Insertion Order Preservation:** Unlike HashSet, the Linked structure sequentially threads previous and next node links mimicking real train architecture naturally maintaining physical attachment logic natively.
+- **Ordered Iteration:** Predictably returns components accurately reflecting initial assembly whenever iterated organically avoiding sorting implementations completely natively.
+
+### Design Explanation
+Integrating a \LinkedHashSet\ effectively represents train chaining. A coach ID should objectively never exist twice inside the consist (Set). Also, the engine naturally goes first, followed reliably by the attached subsequent links sequentially tracking the physical chain realistically (Linked). Real-world rules map organically avoiding convoluted boilerplate natively.

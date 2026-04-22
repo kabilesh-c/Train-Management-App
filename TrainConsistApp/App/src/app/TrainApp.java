@@ -7,6 +7,7 @@ import model.SleeperCoach;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -126,6 +127,30 @@ public class TrainApp {
         
         // 5. Display the final ordered train consist
         System.out.println("Final ordered train consist: " + trainChain);
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC5: Maintain insertion order while enforcing uniqueness
+        // ============================================
+        System.out.println("=== UC5: Ordered Unique Formation (LinkedHashSet) ===");
+        
+        // 1. Create a LinkedHashSet<String> to represent the train formation.
+        Set<String> orderedFormation = new LinkedHashSet<>();
+        
+        // 2. Attach bogies: Engine, Sleeper, Cargo, Guard.
+        orderedFormation.add("Engine");
+        orderedFormation.add("Sleeper");
+        orderedFormation.add("Cargo");
+        orderedFormation.add("Guard");
+        System.out.println("Initial Ordered Formation: " + orderedFormation);
+        
+        // 3. Attempt to attach a duplicate bogie intentionally.
+        System.out.println("Attempting to add duplicate 'Sleeper'...");
+        boolean isSleeperAdded = orderedFormation.add("Sleeper");
+        
+        // 4. Display the final formation order
+        System.out.println("Was 'Sleeper' added? " + isSleeperAdded);
+        System.out.println("Final ordered unique train formation: " + orderedFormation);
         System.out.println("=====================================");
     }
 }
