@@ -4,6 +4,7 @@ import model.ACCoach;
 import model.Bogie;
 import model.Coach;
 import model.GeneralCoach;
+import model.GoodsBogie;
 import model.SleeperCoach;
 
 import java.util.ArrayList;
@@ -311,6 +312,45 @@ public class TrainApp {
         java.util.regex.Matcher cargoMatcher2 = cargoCodePattern.matcher(invalidCargoCode);
         System.out.println("  " + invalidCargoCode + " -> Valid: " + cargoMatcher2.matches());
         
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC12: Encapsulate bogie rules using functional interfaces
+        // ============================================
+        System.out.println("=== UC12: Cargo Safety Validation (Stream allMatch) ===");
+        
+        // 1. Create a collection of goods bogies with type and cargo fields
+        List<GoodsBogie> goodsTrain = new ArrayList<>();
+        goodsTrain.add(new GoodsBogie("Cylindrical", "Petroleum"));
+        goodsTrain.add(new GoodsBogie("Flatbed", "Steel"));
+        goodsTrain.add(new GoodsBogie("Box", "Grain"));
+        
+        System.out.println("Current Goods Consist:");
+        for (GoodsBogie gb : goodsTrain) {
+            System.out.println("  " + gb);
+        }
+        
+        // 2. Convert the collection to a stream using stream()
+        // 3. Use allMatch() to validate every bogie
+        // 4. Apply conditional logic: Cylindrical -> only Petroleum allowed
+        boolean isTrainSafe = goodsTrain.stream().allMatch(bogie -> {
+            if ("Cylindrical".equalsIgnoreCase(bogie.getType())) {
+                return "Petroleum".equalsIgnoreCase(bogie.getCargo());
+            }
+            return true; // Non-cylindrical bogies pass this specific rule
+        });
+        
+        // 5. Store the result in a boolean variable & Display whether the train is safety compliant
+        System.out.println("\nIs the initial train safety compliant? " + isTrainSafe);
+        
+        System.out.println("\nAdding an unsafe bogie: Cylindrical carrying Water...");
+        goodsTrain.add(new GoodsBogie("Cylindrical", "Water"));
+        
+        // Evaluating again using inline boolean logic simulating real-time validation checks
+        boolean isTrainSafeAfter = goodsTrain.stream()
+                .allMatch(b -> !"Cylindrical".equalsIgnoreCase(b.getType()) || "Petroleum".equalsIgnoreCase(b.getCargo()));
+                
+        System.out.println("Is the updated train safety compliant? " + isTrainSafeAfter);
         System.out.println("=====================================");
     }
 }
