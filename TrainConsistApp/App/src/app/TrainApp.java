@@ -351,6 +351,54 @@ public class TrainApp {
                 .allMatch(b -> !"Cylindrical".equalsIgnoreCase(b.getType()) || "Petroleum".equalsIgnoreCase(b.getCargo()));
                 
         System.out.println("Is the updated train safety compliant? " + isTrainSafeAfter);
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC13: Compare performance of loop-based vs stream-based logic
+        // ============================================
+        System.out.println("=== UC13: Performance Benchmarking (System.nanoTime) ===");
+        
+        // 1. Create a collection of bogies for testing
+        List<Bogie> benchmarkList = new ArrayList<>();
+        // Using a large number to ensure time differences are explicitly measurable
+        for (int i = 0; i < 500000; i++) {
+            benchmarkList.add(new Bogie("Test Bogie " + i, (i % 100) + 10)); // capacities 10 to 109
+        }
+        System.out.println("Generated " + benchmarkList.size() + " test bogies...");
+        
+        System.out.println("\n--- Benchmarking Loop-Based Filtering (capacity > 50) ---");
+        // 2. System records start time using System.nanoTime()
+        long startLoopTime = System.nanoTime();
+        
+        // 3. Filtering is performed using a loop
+        List<Bogie> loopFiltered = new ArrayList<>();
+        for (Bogie b : benchmarkList) {
+            if (b.getCapacity() > 50) {
+                loopFiltered.add(b);
+            }
+        }
+        
+        // 4. System records end time & 5. Elapsed time is calculated
+        long endLoopTime = System.nanoTime();
+        long loopDuration = endLoopTime - startLoopTime;
+        
+        System.out.println("--- Benchmarking Stream-Based Filtering (capacity > 50) ---");
+        long startStreamTime = System.nanoTime();
+        
+        // Filtering using a stream pipeline natively
+        List<Bogie> streamFiltered = benchmarkList.stream()
+                .filter(b -> b.getCapacity() > 50)
+                .collect(java.util.stream.Collectors.toList());
+                
+        long endStreamTime = System.nanoTime();
+        long streamDuration = endStreamTime - startStreamTime;
+        
+        // 6. Execution time is displayed
+        System.out.println("\n--- Benchmark Results ---");
+        System.out.println("Loop-Based Execution Time   : " + loopDuration + " ns");
+        System.out.println("Stream-Based Execution Time : " + streamDuration + " ns");
+        
+        // Program continues.
         System.out.println("=====================================");
     }
 }

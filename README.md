@@ -269,3 +269,25 @@ Implemented Java Streams specifically utilizing the \.allMatch()\ terminal opera
 
 ### Design Explanation
 Integrating \llMatch\ structures isolated safety gates that actively return \	rue\ internally protecting validation payloads cleanly seamlessly. Rather than exhaustively relying on imperative nested conditionals flagging arrays natively, this explicit mechanism filters the stream abstractly instantly. Evaluated alongside the newly established \GoodsBogie\, it efficiently flags the invalid "Water-in-Cylinder" instance seamlessly defaulting to a restrictive \alse\ reliably natively securing train configurations.
+
+## Use Case 13 (UC13)
+
+### Goal
+Compare performance explicitly evaluating loop-based processing versus stream-based processing using nanosecond time measurements natively.
+
+### Problem Before UC13
+When adopting modern functional programming paradigms natively (like Java Streams), relying arbitrarily on assumptions about code speed ignores real-world computational architecture natively. Assuming declarative pipelines immediately run "faster" safely without explicitly benchmarking logic operations creates blind spots, as Streams inherently incorporate setup overhead scaling differently across micro-collections natively compared to raw loop iterators.
+
+### Solution
+Introduced systematic Micro-Measurement Benchmarking evaluating high-resolution timeline tracking safely. By generating an excessively large collection of mock Bogie items natively (e.g. 500,000 components), computing the explicit timelines using \System.nanoTime()\ explicitly wraps processing scopes properly contrasting imperative array checks identically against Stream pipeline extractions transparently.
+
+### Concepts Used
+- **System.nanoTime():** Explicit high-resolution time mechanism natively assessing hardware clock durations correctly targeting granular benchmarking.
+- **Performance Benchmarking:** Software testing principles quantifying execution lifecycles organically validating architectural efficiencies securely.
+- **Loop-Based Processing:** Deploying standard imperative \or-each\ implementations executing conditional branches resolving queries step-by-step natively.
+- **Stream-Based Processing:** Orchestrating pipeline methods (\ilter()\, \collect()\) computing results mathematically resolving declarative extractions gracefully.
+- **Micro-Measurement Awareness:** Establishing exact timeline tracking safely understanding microsecond measurements vastly supersede traditional millisecond tracking during computational cycles properly.
+- **Evidence-Driven Optimization:** Rooting enterprise logic designs fundamentally in tested statistics gracefully averting blind pattern guessing authentically.
+
+### Design Explanation
+Using \System.nanoTime()\ wrapping both collection logic implementations explicitly creates objective execution assessments safely. Instantiating a heavily loaded \List<Bogie>\ highlights accurately when Stream overhead configurations functionally intercept iteration mechanisms gracefully. This fundamentally validates real-world train capacity sorting explicitly providing empirical proof detailing exact operational timings properly mapping execution efficiency realistically safely.
