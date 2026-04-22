@@ -181,3 +181,25 @@ Introduced the Java Stream API to process collections in a declarative style nat
 
 ### Design Explanation
 Using Stream pipelines shifts the application directly from imperative procedures organically to functional-style programming reliably. Instead of commanding Java precisely how to navigate arrays and compare items systematically natively, the code declares its criteria (\getCapacity() > 60\) declaratively. The Stream natively filters the extraction securely repacking matching items gracefully into cleanly mapped memory without mutating the source dataset implicitly natively.
+
+## Use Case 9 (UC9)
+
+### Goal
+Group bogies into categories using Stream collectors natively for analytical structure.
+
+### Problem Before UC9
+Separating flat collections into organized subsets by type historically required initializing empty maps, manually iterating across all entities, conditionally checking if the category key existed, and creating sub-lists before appending objects natively. This error-prone setup logic completely obscures the primary business intent behind thick loops.
+
+### Solution
+Utilized \Collectors.groupingBy()\ natively embedded within the Stream API logic. By mapping the classification condition (\Bogie::getName\), Java automatically initializes the structural mapping and seamlessly sorts every bogie entity into hierarchical \Map<String, List<Bogie>>\ categorizations elegantly. 
+
+### Concepts Used
+- **Collectors.groupingBy():** A functional stream collector aggregating and sorting matching instances into distinct mapping endpoints dynamically relying strictly on declarative conditions natively.
+- **Stream Pipeline:** Applies sequential data processing sequentially handling transformations safely without rewriting raw states.
+- **Map Output Structure:** Successfully produces aggregated mapping (\Map\) representing group identities linking sub-collections mapping identical entities together natively.
+- **Lambda Classification Logic:** Defines cleanly how bogies categorize (grouping directly by the Bogie Name seamlessly).
+- **Data Aggregation:** Collates dispersed flat lists intuitively capturing identical references correctly into unified analytical clusters natively.
+- **Structured Transformation:** Generates hierarchical formatting naturally reflecting operational organization logic cleanly.
+
+### Design Explanation
+Calling \Collectors.groupingBy()\ transitions processing naturally from flat linear structures to hierarchical categorization safely. Because a consist often needs rapid grouping by coach classification (how many 'Sleepers'? how many 'AC Chairs'?), this collector fundamentally delegates the organizational logic explicitly cleanly returning precise grouping natively skipping nested looping artifacts natively.

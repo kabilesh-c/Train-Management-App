@@ -230,6 +230,31 @@ public class TrainApp {
             System.out.println("  - " + b);
         }
         
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC9: Group bogies into categories using Stream collectors
+        // ============================================
+        System.out.println("=== UC9: Grouping Bogies (Collectors.groupingBy) ===");
+        
+        // Let's add a duplicate category to naturally demonstrate grouping
+        customBogies.add(new Bogie("Sleeper", 72));
+        
+        // 1. Create a stream using stream()
+        // 2. Apply Collectors.groupingBy() with a classification function (getName)
+        // 3. Store the result in Map<String, List<Bogie>>
+        System.out.println("Grouping bogies by category name...");
+        Map<String, List<Bogie>> groupedBogies = customBogies.stream()
+                .collect(java.util.stream.Collectors.groupingBy(Bogie::getName));
+                
+        // 4. Print the grouped bogie structure
+        for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+            System.out.println("\nCategory: [" + entry.getKey() + "]");
+            for (Bogie b : entry.getValue()) {
+                System.out.println("  -> " + b);
+            }
+        }
+        
         System.out.println("=====================================");
     }
 }
