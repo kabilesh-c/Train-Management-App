@@ -209,6 +209,27 @@ public class TrainApp {
             System.out.println("  - " + b);
         }
         
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC8: Filter passenger bogies using Stream pipelines
+        // ============================================
+        System.out.println("=== UC8: Bogie Filtering (Stream API) ===");
+        
+        // 1. Create a stream from the list using stream()
+        // 2. Apply filter(b -> b.getCapacity() > 60) as the condition
+        // 3. Collect the result into a new list
+        System.out.println("Filtering bogies with capacity > 60...");
+        List<Bogie> highCapacityBogies = customBogies.stream()
+                .filter(b -> b.getCapacity() > 60)
+                .collect(java.util.stream.Collectors.toList());
+        
+        // 4. Display the filtered bogies
+        System.out.println("High Capacity Bogies:");
+        for (Bogie b : highCapacityBogies) {
+            System.out.println("  - " + b);
+        }
+        
         System.out.println("=====================================");
     }
 }
