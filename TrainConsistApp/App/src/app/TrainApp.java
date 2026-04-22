@@ -272,6 +272,45 @@ public class TrainApp {
                 
         // 4. Display the total seating capacity
         System.out.println("Total Assessed Seating Capacity: " + totalCapacity + " seats");
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC11: Validate Train ID and Cargo Code formats
+        // ============================================
+        System.out.println("=== UC11: Regex Validation ===");
+        
+        // 1. Define a regex pattern for Train ID (TRN-\d{4})
+        // 3. Compile patterns using the Pattern class
+        java.util.regex.Pattern trainIdPattern = java.util.regex.Pattern.compile("TRN-\\d{4}");
+        
+        // 2. Define a regex pattern for Cargo Code (PET-[A-Z]{2})
+        java.util.regex.Pattern cargoCodePattern = java.util.regex.Pattern.compile("PET-[A-Z]{2}");
+        
+        // Simulate User input
+        String validTrainId = "TRN-1234";
+        String invalidTrainId = "TRN-12A4";
+        String validCargoCode = "PET-AB";
+        String invalidCargoCode = "PET-12";
+        
+        System.out.println("Validating Train IDs (Format: TRN-####):");
+        
+        // 4. Create Matcher objects for user input
+        // 5. Use matches() to validate input formats
+        // 6. Display whether the input is valid or invalid
+        java.util.regex.Matcher trainMatcher1 = trainIdPattern.matcher(validTrainId);
+        System.out.println("  " + validTrainId + " -> Valid: " + trainMatcher1.matches());
+        
+        java.util.regex.Matcher trainMatcher2 = trainIdPattern.matcher(invalidTrainId);
+        System.out.println("  " + invalidTrainId + " -> Valid: " + trainMatcher2.matches());
+        
+        System.out.println("\nValidating Cargo Codes (Format: PET-XX):");
+        
+        java.util.regex.Matcher cargoMatcher1 = cargoCodePattern.matcher(validCargoCode);
+        System.out.println("  " + validCargoCode + " -> Valid: " + cargoMatcher1.matches());
+        
+        java.util.regex.Matcher cargoMatcher2 = cargoCodePattern.matcher(invalidCargoCode);
+        System.out.println("  " + invalidCargoCode + " -> Valid: " + cargoMatcher2.matches());
+        
         System.out.println("=====================================");
     }
 }
