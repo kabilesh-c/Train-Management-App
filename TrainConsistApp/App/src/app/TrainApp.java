@@ -6,7 +6,9 @@ import model.GeneralCoach;
 import model.SleeperCoach;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Main application class for managing the Train Consist Application.
@@ -74,6 +76,26 @@ public class TrainApp {
         
         // 6. Print final list state
         System.out.println("Final passenger bogies list: " + passengerBogies);
+        System.out.println("=====================================\n");
+        
+        // ============================================
+        // UC3: Ensure no duplicate bogie IDs
+        // ============================================
+        System.out.println("=== UC3: Unique Bogie IDs (HashSet) ===");
+        
+        // 1. System inserts into HashSet
+        Set<String> bogieIds = new HashSet<>();
+        
+        // 2. User adds bogie IDs
+        System.out.println("Adding IDs: S-01, A-02, S-01, G-03");
+        bogieIds.add("S-01");
+        bogieIds.add("A-02");
+        bogieIds.add("S-01"); // Duplicate - will be ignored
+        bogieIds.add("G-03");
+        
+        // 3. Duplicates are ignored; Unique IDs are displayed
+        System.out.println("Unique Bogie IDs in HashSet: " + bogieIds);
+        System.out.println("Total unique IDs successfully registered: " + bogieIds.size());
         System.out.println("=====================================");
     }
 }
